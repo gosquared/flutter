@@ -13,7 +13,7 @@ var FlutterAPI = module.exports = function(flutter) {
 };
 
 FlutterAPI.prototype.key = function(token, k) {
-  return self.opts.prefix + token + '.' + k;
+  return this.opts.prefix + token + '.' + k;
 };
 
 FlutterAPI.prototype.get = function(url, token, secret, cb) {
@@ -71,17 +71,20 @@ FlutterAPI.prototype.fetch = function(url, params, token, secret, cb) {
 
   self.debug('fetching');
 
+  var getArgs = [ url, token, secret, cb ];
+
   if (!self.opts.cache) {
     self.debug('cache disabled');
-    return self.get.apply(self, arguments);
+    return self.get.apply(self, getArgs);
   }
+
 
   self.debug('trying cache');
 
   self.cache.get(self.key(token, url), function(err, res) {
     if (err || !res) {
       self.debug('not cached');
-      return self.get.apply(self, arguments);
+      return self.get.apply(self, getArgs);
     }
 
     var data;
@@ -92,7 +95,7 @@ FlutterAPI.prototype.fetch = function(url, params, token, secret, cb) {
     }
 
     if (!data) {
-      return self.get.apply(self, arguments);
+      return self.get.apply(self, getArgs);
     }
 
     self.debug('successfully fetched cached');
