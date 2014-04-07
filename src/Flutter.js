@@ -102,6 +102,11 @@ var Flutter = module.exports = function(opts) {
 
 
   self.API = new FlutterAPI(self);
+
+  // Bind these to self, so they can be used without binding
+  self.connect = self.connect.bind(self);
+  selc.auth = self.auth.bind(self);
+  self.logout = self.logout.bind(self);
 };
 
 Flutter.prototype.connect = function(req, res, next) {
