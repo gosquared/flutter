@@ -38,8 +38,6 @@ app.get('/twitter/connect', flutter.connect);
 // URL used in loginCallback above
 app.get('/twitter/callback', flutter.auth);
 
-app.get('/twitter/logout', flutter.logout);
-
 
 // Direct users to /twitter/connect to initiate oauth flow.
 ```
@@ -52,7 +50,7 @@ Currently only `GET` functions are supported
 ```js
 // var {accessToken, secret} = retrieve credentials for request
 
-flutter.API.get('search/tweets.json', { q: 'bacon' }, function(err, results) {
+flutter.API.get('search/tweets.json', { q: 'bacon' }, accessToken, secret, function(err, results) {
   console.log(results); // { statuses: [ { ...etc } ] }
 });
 ```
