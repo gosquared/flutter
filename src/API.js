@@ -53,8 +53,7 @@ FlutterAPI.prototype.get = function(url, token, secret, cb) {
     }
 
     if (self.opts.cache) {
-      self.cache.set(self.key(token, url), data);
-      self.cache.pexpire(self.key(token, url), self.opts.cache);
+      self.cache.set(self.key(token, url), data, 'PX', self.opts.cache);
     }
 
     cb(null, d, res);
