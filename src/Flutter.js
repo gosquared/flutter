@@ -128,8 +128,9 @@ Flutter.prototype.connect = function(req, res, next) {
 
     self.opts.connectCallback(req, res, next);
 
-    // redirect the user to the authorise page
-    res.redirect("https://twitter.com/oauth/authorize?oauth_token=" + token);
+    // sign in the user if the user has previously connected, else ask for authorization. 
+    // see https://dev.twitter.com/oauth/reference/get/oauth/authenticate
+    res.redirect("https://twitter.com/oauth/authenticate?oauth_token=" + token);
 
   });
 };
