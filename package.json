@@ -1,6 +1,6 @@
 {
   "name": "flutter",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Twitter oAuth Module for the 1.1 API",
   "main": "src/Flutter.js",
   "repository": {
@@ -30,8 +30,8 @@
     "url": "https://github.com/gosquared/flutter/issues"
   },
   "dependencies": {
-    "oauth": "~0.9.10",
-    "debug": "~0.7.2",
-    "redis": "~0.9.0"
+    "oauth": "^0.9.13",
+    "debug": "^2.2.0",
+    "redis": "^0.12.1"
   }
 }

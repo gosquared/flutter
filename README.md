@@ -1,5 +1,10 @@
 # Flutter
 
+[![Dependencies](https://david-dm.org/gosquared/flutter.svg)](https://david-dm.org/gosquared/flutter)
+[![Join the chat at https://gitter.im/gosquared/flutter](https://img.shields.io/badge/gitter-join%20chat-blue.svg)](https://gitter.im/gosquared/flutter)
+
+[![NPM](https://nodei.co/npm/flutter.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/flutter)
+
 ## Twitter API authentication and fetching helpers
 
 Managing oauth flow can be a pain and involve a lot of messy code. Flutter helps with that.
