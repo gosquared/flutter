@@ -1,6 +1,6 @@
 {
   "name": "flutter",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Twitter oAuth Module for the 1.1 API",
   "main": "src/Flutter.js",
   "repository": {
