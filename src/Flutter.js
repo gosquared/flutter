@@ -50,7 +50,8 @@ var Flutter = module.exports = function(opts) {
     redis: {
       host: 'localhost',
       port: 6379,
-      database: 0
+      database: 0,
+      options: {}
     },
 
     // set to a redis client to use it for caching instead of creating a new connection
@@ -96,7 +97,7 @@ var Flutter = module.exports = function(opts) {
 
   if (!self.cache) {
     self.debug('creating redis client');
-    self.cache = redis.createClient(self.opts.redis.port, self.opts.redis.host);
+    self.cache = redis.createClient(self.opts.redis.port, self.opts.redis.host, self.opts.redis.options);
     self.cache.select(self.opts.redis.database);
   }
 
