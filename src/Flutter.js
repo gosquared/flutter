@@ -68,8 +68,8 @@ var Flutter = module.exports = function(opts) {
   for (var i in opts) {
 
     // allow for 1st level nesting nice overrides
-    if (typeof opts[i] === 'object') {
-      if (typeof self.opts[i] !== 'object') self.opts[i] = opts[i];
+    if (opts[i] && typeof opts[i] === 'object') {
+      if (!self.opts[i] || typeof self.opts[i] !== 'object') self.opts[i] = opts[i];
       for (var j in opts[i]) {
         self.opts[i][j] = opts[i][j];
       }
@@ -95,7 +95,7 @@ var Flutter = module.exports = function(opts) {
 
   self.cache = self.opts.cacheClient;
 
-  if (!self.cache) {
+  if (!self.cache && self.opts.cache) {
     self.debug('creating redis client');
     self.cache = redis.createClient(self.opts.redis.port, self.opts.redis.host, self.opts.redis.options);
     self.cache.select(self.opts.redis.database);
@@ -129,7 +129,7 @@ Flutter.prototype.connect = function(req, res, next) {
 
     self.opts.connectCallback(req, res, next);
 
-    // sign in the user if the user has previously connected, else ask for authorization. 
+    // sign in the user if the user has previously connected, else ask for authorization.
     // see https://dev.twitter.com/oauth/reference/get/oauth/authenticate
     res.redirect("https://twitter.com/oauth/authenticate?oauth_token=" + token);
 
