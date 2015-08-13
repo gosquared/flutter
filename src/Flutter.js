@@ -98,7 +98,7 @@ var Flutter = module.exports = function(opts) {
   if (!self.cache && self.opts.cache) {
     self.debug('creating redis client');
     self.cache = redis.createClient(self.opts.redis.port, self.opts.redis.host, self.opts.redis.options);
-    self.cache.select(self.opts.redis.database);
+    if (self.opts.redis.database) self.cache.select(self.opts.redis.database);
   }
 
 
