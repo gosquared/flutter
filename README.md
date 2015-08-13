@@ -91,8 +91,9 @@ var flutter = new Flutter({
   // Cache lifetime to use for API requests. Set to something falsy to disable cache
   cache: 60000,
 
-  // Redis config. Used for caching api responses
-  redis: { host: 'localhost', port: 6379, database: 0 },
+  // Redis config. Used for caching api responses.
+  // The `options` parameter is optional.
+  redis: { host: 'localhost', port: 6379, database: 0, options: { auth_pass: 'myPassword'} },
 
   // set this to a redis client to use instead of creating a new one
   cacheClient: redisClient,
@@ -102,3 +103,4 @@ var flutter = new Flutter({
 
 });
 ```
+For more details on configuration options for the redisClient, please visit [NodeRedis](https://github.com/NodeRedis/node_redis#api).
