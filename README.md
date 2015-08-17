@@ -55,7 +55,7 @@ Currently only `GET` functions are supported
 ```js
 // var {accessToken, secret} = retrieve credentials for request
 
-flutter.API.get('search/tweets.json', { q: 'bacon' }, accessToken, secret, function(err, results) {
+flutter.API.fetch('search/tweets.json', { q: 'bacon' }, accessToken, secret, function(err, results) {
   console.log(results); // { statuses: [ { ...etc } ] }
 });
 ```
